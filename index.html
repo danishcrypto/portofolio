@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Danish Sektiawan | Portofolio</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --accent: #0F172A;
+            --accent-highlight: #2563EB;
+            --border-color: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-highlight);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #EFF6FF;
+            color: var(--accent-highlight);
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 1.5rem;
+            border: 1px solid #DBEAFE;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background: #1E293B;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+        }
+
+        /* Section Titles */
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-quote {
+            border-left: 3px solid var(--accent-highlight);
+            padding-left: 1.2rem;
+            font-style: italic;
+            color: var(--text-primary) !important;
+            font-weight: 500;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            border-color: #CBD5E1;
+        }
+
+        .skill-icon {
+            background: #F1F5F9;
+            color: var(--accent);
+            padding: 0.75rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-info p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects / Praktikum Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-highlight);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tags span {
+            background: #F3F4F6;
+            color: #374151;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: var(--accent);
+            color: #FFFFFF;
+            border-radius: 16px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-box p {
+            color: #94A3B8;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+            .about-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Danish.dev</a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Praktikum</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="badge">
+            <i data-lucide="terminal" size="16"></i>
+            <span>Mahasiswa Teknik Informatika</span>
+        </div>
+        <h1>Muhammad Danish Sektiawan</h1>
+        <p>
+            Menjelajahi dunia infrastruktur jaringan dan sistem komputer dari nol. Berfokus pada operasional jaringan, pemecahan masalah perangkat keras, dan pengembangan dasar untuk menjadi seorang Network Operations Center (NOC).
+        </p>
+        <div class="btn-group">
+            <a href="#skills" class="btn btn-primary">
+                Lihat Keahlian <i data-lucide="arrow-right" size="18"></i>
+            </a>
+            <a href="#about" class="btn btn-outline">Cerita Saya</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2>Tentang Saya</h2>
+            <p>Latar belakang dan alasan memilih jalur teknik jaringan.</p>
+        </div>
+        <div class="about-card">
+            <div class="about-text">
+                <p>
+                    Halo! Saya <strong>Muhammad Danish Sektiawan</strong>, saat ini sedang menempuh pendidikan sebagai mahasiswa <strong>Teknik Informatika</strong>. Saya tumbuh besar di lingkungan bisnis keluarga yang mapan di bawah naungan <em>Republic of Luxury CEO</em>.
+                </p>
+                <p class="highlight-quote">
+                    "Motivasi utama saya masuk Teknik Informatika adalah untuk menjadi seorang Network Operations Center (NOC) dan merasakan langsung bagaimana rasanya bekerja dan berjuang dari bawah layaknya orang biasa."
+                </p>
+                <p>
+                    Bagi saya, memahami bagaimana infrastruktur teknologi bekerja secara teknis—mulai dari menarik kabel jaringan, mengonfigurasi perangkat, hingga menangani kendala sistem secara langsung—memberikan kepuasan tersendiri dan membentuk mentalitas kerja keras yang nyata.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <div class="section-header">
+            <h2>Keahlian & Kompetensi</h2>
+            <p>Fondasi teknis dan perangkat lunak yang saya kuasai.</p>
+        </div>
+        <div class="skills-grid">
+            <!-- Skill 1 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="network" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Network Installation</h3>
+                    <p>Instalasi dasar jaringan lokal (LAN), crimping kabel UTP, serta pengaturan topologi sederhana.</p>
+                </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="router" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Basic Cisco</h3>
+                    <p>Konfigurasi dasar router dan switch Cisco, manajemen IP addressing, serta simulasi jaringan.</p>
+                </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="cpu" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Hardware Troubleshooting</h3>
+                    <p>Identifikasi kerusakan komponen PC/laptop, perakitan perangkat keras, dan pemeliharaan rutin.</p>
+                </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="monitor" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Instalasi OS (Windows)</h3>
+                    <p>Instalasi bersih sistem operasi Windows, manajemen partisi disk, driver, dan optimasi sistem.</p>
+                </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="code-2" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Basic HTML & Python</h3>
+                    <p>Pembuatan struktur halaman web statis dengan HTML dan pemrograman logika dasar menggunakan Python.</p>
+                </div>
+            </div>
+
+            <!-- Skill 6 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i data-lucide="file-spreadsheet" size="22"></i>
+                </div>
+                <div class="skill-info">
+                    <h3>Microsoft Office</h3>
+                    <p>Pengolahan dokumen laporan (Word), analisis data dan rumus dasar (Excel), serta presentasi (PowerPoint).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Lab Section -->
+    <section id="projects" class="container">
+        <div class="section-header">
+            <h2>Catatan Praktikum & Latihan</h2>
+            <p>Implementasi keahlian dalam tugas kuliah dan latihan mandiri.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">Networking Lab</span>
+                    <h3>Simulasi Jaringan Kantor Kecil</h3>
+                    <p>Merancang pembagian subnetting IP dan konfigurasi dasar routing antar divisi menggunakan perangkat Cisco.</p>
+                </div>
+                <div class="tech-tags">
+                    <span>Basic Cisco</span>
+                    <span>Subnetting</span>
+                    <span>Network Installation</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">System & Hardware</span>
+                    <h3>Perakitan & Deployment Workstation</h3>
+                    <p>Melakukan pengecekan komponen hardware, instalasi sistem operasi Windows, serta konfigurasi aplikasi perkantoran.</p>
+                </div>
+                <div class="tech-tags">
+                    <span>Windows OS</span>
+                    <span>Troubleshooting</span>
+                    <span>MS Office</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">Tugas Kuliah PTI</span>
+                    <h3>Web Portofolio Pribadi</h3>
+                    <p>Membangun halaman portofolio web statis minimalis untuk mendokumentasikan profil akademik dan keahlian teknis.</p>
+                </div>
+                <div class="tech-tags">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>GitHub Pages</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="contact-box">
+            <h2>Mari Terhubung</h2>
+            <p>Terbuka untuk diskusi seputar jaringan komputer, tugas kuliah, maupun kesempatan belajar bersama.</p>
+            <div class="contact-links">
+                <a href="mailto:mds.muhammad.danish@gmail.com" class="contact-btn">
+                    <i data-lucide="mail" size="18"></i> Email Saya
+                </a>
+                <a href="https://www.instagram.com/dn_isshh" target="_blank" class="contact-btn">
+                    <i data-lucide="instagram" size="18"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Muhammad Danish Sektiawan. Dibuat untuk Tugas Kuliah Pengantar Teknologi Informasi.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
